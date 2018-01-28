@@ -135,7 +135,18 @@ export default {
   methods: {
     handleSelect(key, keyPath) {
       var jsonData;
-      this.axios.get('/api/posts').then((response)=>{
+      this.axios({
+        url: '/api/posts',
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        params: {
+
+        }
+      }).then((response)=>{
+        console.log(response);
+        
         jsonData=response.data;
         this.$message({
           message: '选择了一个导航的菜单, key = ' + jsonData[0].title,
