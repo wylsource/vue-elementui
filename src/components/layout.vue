@@ -134,12 +134,19 @@ export default {
   },
   methods: {
     handleSelect(key, keyPath) {
-      this.$message({
-          message: '选择了一个导航的菜单, key = ' + key,
+      var jsonData;
+      this.axios.get('/api/posts').then((response)=>{
+        jsonData=response.data;
+        this.$message({
+          message: '选择了一个导航的菜单, key = ' + jsonData[0].title,
           type: 'success',
           center: true,
           showClose: true
       });
+      }).catch((response)=>{
+        console.log(response);
+      })
+      
     },
     handleOpen(key, keyPath) {
       this.$message({

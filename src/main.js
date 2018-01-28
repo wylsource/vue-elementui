@@ -6,6 +6,9 @@ Vue.use(Element)
 import 'font-awesome/css/font-awesome.css'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios);
 import layout from './components/layout'
 import IndexPage from './pages/index'
 

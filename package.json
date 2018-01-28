@@ -7,13 +7,17 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "mock": "json-server --watch src/db.json",
+    "mockdev": "npm run mock & npm run dev"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "element-ui": "^2.0.11",
     "font-awesome": "^4.7.0",
     "json-server": "^0.12.1",
     "vue": "^2.5.2",
+    "vue-axios": "^2.0.2",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
