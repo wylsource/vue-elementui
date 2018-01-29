@@ -15,7 +15,9 @@
               active-text-color="#ffd04b"
               width="1247px"
               >
-              <el-menu-item class="w-logo" index="0">随心记后台管理系统</el-menu-item>
+              <el-menu-item class="w-logo" index="0">
+                <img src="../assets/w-suixj.png" alt="w-logo" class="w-logo-img">
+                随心记</el-menu-item>
               <div class="larry-side-menu" @click="changeMenu">
                     <i class="fa fa-th-large" aria-hidden="true"></i>
               </div>
@@ -212,9 +214,16 @@ export default {
 
   .w-logo {
     text-align: center;
-    font-size: 20px;
-    padding-left: 10px;
+    font-size: 23px;
+    padding-left: 20px;
     padding-right: 50px;
+  }
+
+  .w-logo-img {
+    text-align: center;
+    align-self: center;
+    padding-left: 0px;
+    width: 40px;
   }
 
   .layout-nav-img{
@@ -226,7 +235,7 @@ export default {
     display: inline-block;
   }
   .w-button {
-    padding-left: 250px;
+    padding-left: 200px;
   }
   
   .w-a-notextline {
@@ -275,7 +284,7 @@ export default {
     position: absolute;
     cursor: pointer;
     z-index: 19940201;
-    left: 200px;
+    left: 145px;
     color: #fff;
     text-align: center;
     width: 30px;
@@ -283,7 +292,7 @@ export default {
     background-color: #29e;
     line-height: 30px;
     /* top: 40%; */
-    bottom: 0%;
+    bottom: 20%;
 }
 
 .larry-side-menu:hover {
