@@ -18,5 +18,57 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "menuList": [
+    { 
+          "id": "1",
+          "icon": "el-icon-location",
+          "menuName": "导航1",
+          "url": "el-icon-location",
+          "havingChild": true,
+          "children": [
+        {
+              "id": "1-1",
+              "icon": "el-icon-location",
+              "menuName": "导航1-1",
+              "url": "",
+              "havingChild": true,
+              "children": [
+            {
+                  "id": "1-1-1",
+                  "icon": "el-icon-location",
+                  "menuName": "导航1-1-1",
+                  "url": "",
+                  "havingChild": false,
+                  "children": []
+            }
+          ]
+        },
+        {
+              "id": "1-2",
+              "icon": "el-icon-location",
+              "menuName": "导航1-2",
+              "url": "",
+              "havingChild": false,
+              "children": []
+        }
+      ]
+    },
+    {
+          "id": "2-1",
+          "icon": "el-icon-menu",
+          "menuName": "导航二",
+          "url": "",
+          "havingChild": false,
+          "children": []
+    },
+    {
+          "id": "3-1",
+          "icon": "el-icon-setting",
+          "menuName": "导航三",
+          "url": "",
+          "havingChild": false,
+          "children": []
+    }
+  ]
 }

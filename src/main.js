@@ -14,6 +14,7 @@ import IndexPage from './pages/index'
 
 Vue.config.productionTip = false
 
+
 //实例化 VueRouter
 let router = new VueRouter({
   mode: 'history',
@@ -31,6 +32,7 @@ new Vue({
   router,
   components: {
     layout
+    
   },
 
   template: '<layout/>'

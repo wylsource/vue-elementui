@@ -70,7 +70,7 @@
           <!-- 菜单 -->
           <div class="w-left-menu">
             <el-menu 
-              default-active="2" 
+              default-active="2-1" 
               class="el-menu-vertical" 
               @open="handleOpen" 
               @close="handleClose" 
@@ -79,37 +79,8 @@
               text-color="#fff"
               active-text-color="#ffd04b"
               >
-                <el-submenu index="1">
-                  <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span slot="title">导航一</span>
-                  </template>
-                  <el-menu-item-group>
-                    <span slot="title">分组一</span>
-                    <el-menu-item index="1-1">选项1</el-menu-item>
-                    <el-menu-item index="1-2">选项2</el-menu-item>
-                  </el-menu-item-group>
-                  <el-menu-item-group title="分组2">
-                    <el-menu-item index="1-3">选项3</el-menu-item>
-                  </el-menu-item-group>
-                  <el-submenu index="1-4">
-                    <span slot="title">选项4</span>
-                    <el-menu-item index="1-4-1">选项1</el-menu-item>
-                  </el-submenu>
-                </el-submenu>
-                <el-menu-item index="2">
-                  <i class="el-icon-menu"></i>
-                  <span slot="title">导航二</span>
-                </el-menu-item>
-                <el-menu-item index="3">
-                  <i class="el-icon-setting"></i>
-                  <span slot="title">导航三</span>
-                </el-menu-item>
-                <el-menu-item index="3">
-                  <i class="el-icon-setting"></i>
-                  <span slot="title">导航三</span>
-                </el-menu-item>
-              
+              <w-menu ref="$wMenu" v-bind:menuList="menuList"></w-menu>
+               
               </el-menu>
           </div>
           <el-main>
@@ -124,15 +95,38 @@
 
 <script>
 import 'element-ui/lib/theme-chalk/index.css'
+import wMenu from '../components/menu'
 export default {
   name: 'layout',
   data () {
     return {
       activeIndex: '1',
-      isCollapse: false
+      isCollapse: false,
+      menuList: []
     }
   },
+  created(){
+        this.loadData();
+  },
   methods: {
+
+    loadData() {
+      this.axios({
+        url: '/api/menuList',
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        params: {
+
+        }
+      }).then((response)=>{
+        this.menuList=response.data;
+      }).catch((response)=>{
+        console.log(response);
+      })
+    },
+
     handleSelect(key, keyPath) {
       var jsonData;
       this.axios({
@@ -145,8 +139,6 @@ export default {
 
         }
       }).then((response)=>{
-        console.log(response);
-        
         jsonData=response.data;
         this.$message({
           message: '选择了一个导航的菜单, key = ' + jsonData[0].title,
@@ -171,6 +163,12 @@ export default {
       this.$message('关闭左侧菜单, key = ' + key);
     },
     changeMenu() {
+      let size = this.$refs.$wMenu.getMenuSize();
+      this.$notify({
+          title: 'notify消息通知',
+          message: '调用子组件wMenu的getMenuSize方法, size = ' + size,
+          type: 'success'
+      });
       this.$message({
           message: '修改左侧菜单显示方式',
           type: 'error',
@@ -196,6 +194,9 @@ export default {
           });          
         });
     }
+  },
+  components: {
+    'w-menu': wMenu
   }
 }
 </script>
