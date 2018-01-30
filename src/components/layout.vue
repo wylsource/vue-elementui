@@ -16,8 +16,8 @@
               width="1247px"
               >
               <el-menu-item class="w-logo" index="0">
-                <img src="../assets/w-suixj.png" alt="w-logo" class="w-logo-img">
-                随心记</el-menu-item>
+                <img src="../assets/w-sxij-backstageSupporter.png" alt="w-logo" class="w-logo-img">
+              </el-menu-item>
               <div class="larry-side-menu" @click="changeMenu">
                     <i class="fa fa-th-large" aria-hidden="true"></i>
               </div>
@@ -223,7 +223,7 @@ export default {
     text-align: center;
     align-self: center;
     padding-left: 0px;
-    width: 40px;
+    width: 170px;
   }
 
   .layout-nav-img{
@@ -284,7 +284,7 @@ export default {
     position: absolute;
     cursor: pointer;
     z-index: 19940201;
-    left: 145px;
+    left: 190px;
     color: #fff;
     text-align: center;
     width: 30px;
